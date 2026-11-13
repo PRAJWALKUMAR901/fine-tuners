@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-parchment text-ink antialiased;
+    margin: 0;
+    min-width: 320px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  :focus-visible {
+    outline: 3px solid #2f6645;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  button,
+  a,
+  select,
+  input {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  svg [tabindex='0']:focus-visible {
+    outline: 3px solid #b45309;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-forest-100 bg-white shadow-card;
+  }
+
+  .card-heading {
+    @apply flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-forest-800;
+  }
+
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-forest-200 bg-white px-3.5 py-2 text-sm font-semibold text-forest-900 transition hover:bg-forest-50 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .btn-primary {
+    @apply border-forest-700 bg-forest-700 text-white hover:bg-forest-800 hover:text-white;
+  }
+
+  .btn-accent {
+    @apply border-clay-500 bg-clay-500 text-white hover:bg-clay-600 hover:text-white;
+  }
+
+  .btn-danger {
+    @apply border-red-200 bg-red-50 text-red-800 hover:bg-red-100;
+  }
+
+  .btn-sm {
+    @apply min-h-[36px] rounded-lg px-2.5 py-1 text-xs;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide;
+  }
+
+  .label {
+    @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-forest-700;
+  }
+
+  .field {
+    @apply min-h-[44px] w-full rounded-xl border border-forest-200 bg-white px-3 text-sm text-ink focus:border-forest-500 focus:outline-none;
+  }
+
+  .panel-title {
+    @apply text-base font-bold text-forest-950;
+  }
+
+  .muted {
+    @apply text-sm text-forest-700;
+  }
+
+  .stat-value {
+    @apply mt-1 text-2xl font-bold tabular-nums text-forest-950;
+  }
+
+  .stat-label {
+    @apply text-[11px] font-semibold uppercase tracking-wide text-forest-600;
+  }
+
+  .link-quiet {
+    @apply font-semibold text-forest-700 underline decoration-forest-300 underline-offset-2 hover:text-forest-900;
+  }
+}
+
+/* Reduced motion keeps all functional updates but removes decorative motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .motion-decorative {
+    display: none !important;
+  }
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #bcd8c4 transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #bcd8c4;
+  border-radius: 999px;
+}
